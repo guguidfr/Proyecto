@@ -1,0 +1,11 @@
+*** Forward Zone
+
+zone "miproyecto.local" IN { // Domain name : miproyecto.local
+    
+      type master; // Primary DNS : master
+
+     file "/etc/bind/forward.miproyecto.local"; // Forward lookup file ( in step 3.3 )
+
+     allow-update { none; }; // Primary DNS set : "none" ;
+
+};

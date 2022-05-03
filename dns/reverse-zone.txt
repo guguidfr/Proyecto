@@ -1,0 +1,10 @@
+*** Reverse Zone 
+
+zone "1.168.192.in-addr.arpa" IN { //Reverse lookup name, should match your network in reverse order
+
+     type master; // Primary DNS : master
+
+     file "/etc/bind/reverse.miproyecto.local"; //Reverse lookup file ( in step 3.4 )
+
+     allow-update { none; }; //Primary DNS set : "none;" ;
+};
