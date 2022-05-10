@@ -1,0 +1,12 @@
+---
+- name: Grafana server creation
+  hosts: grafana-server
+  become: yes
+  roles:
+    - grafana
+- name: PSQL server creation
+  hosts: psql-server
+  become: yes
+  roles:
+    - postgresql
+    - remote
