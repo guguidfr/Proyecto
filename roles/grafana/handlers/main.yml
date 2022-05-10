@@ -1,0 +1,16 @@
+- name: Instalar Grafana
+  apt:
+    name: grafana
+    state: present
+    update_cache: yes
+  notify:
+    - Start grafana
+    - Enable grafana
+- name: Iniciar Grafana
+  systemd:
+    name: grafana-server
+    state: started
+- name: Habilitar Grafana
+  systemd:
+    name: grafana-server
+    enabled: yes

@@ -1,0 +1,30 @@
+- name: Actualizar APT
+  apt:
+    update_cache: yes
+    force_apt_get: yes
+    cache_valid_time: 3600
+- name: Actualizar todos los paquetes del servidor
+  apt:
+    upgrade: dist
+    force_apt_get: yes
+- name: Instalar paquetes requeridos
+  apt:
+    name:
+      - gnupg2
+      - curl
+      - software-properties-common
+    state: present
+- name: Añadir la key GPG y respositorio de Grafana
+  shell: |
+    curl https://packages.grafana.com/gpg.key | sudo apt-key add -
+    add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+  args:
+    warn: no
+- name: Instalar Grafana
+  apt:
+    name: grafana
+    state: present
+    update_cache: yes
+  notify:
+    - Start grafana
+    - Enable grafana
