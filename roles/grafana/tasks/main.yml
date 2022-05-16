@@ -28,3 +28,5 @@
   notify:
     - Start grafana
     - Enable grafana
+- name: Iniciar Grafana en el arranque
+  shell: sudo update-rc.d grafana-server defaults
