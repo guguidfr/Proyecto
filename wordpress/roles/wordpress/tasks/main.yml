@@ -1,0 +1,46 @@
+---
+    - name: "Crear directorio"
+      shell: mkdir -p /var/www/html/wordpress/public_html
+
+    - name: "Copiar archivo de configuración"
+      copy:
+        src: wordpress.conf
+        dest: /etc/nginx/sites-available
+
+    - name: "Crear enlace simbolico"
+      shell: ln -s /etc/nginx/sites-available/wordpress.conf /etc/nginx/sites-enabled/
+
+    - name: "Eliminar fichero default"
+      shell: rm /etc/nginx/sites-enabled/default
+
+    - name: "Reiniciar nginx"
+      shell: systemctl reload nginx
+
+    - name: "Descargar Wordpress"
+      shell: wget -P /var/www/html/wordpress/public_html/ https://wordpress.org/latest.tar.gz
+
+    - name: "Extraer ficheros"
+      shell: tar -zxvf /var/www/html/wordpress/public_html/latest.tar.gz -C /var/www/html/wordpress/public_html/
+
+    - name: "Sacar ficheros de la carpeta Wordpress"
+      shell: mv /var/www/html/wordpress/public_html/wordpress/* /var/www/html/wordpress/public_html/
+
+    - name: "Eliminar carpeta Wordpress"
+      shell: rm -rf /var/www/html/wordpress/public_html/wordpress
+
+    - name: "Cambiar propietario"
+      shell: chown -R www-data:www-data /var/www/html/wordpress/public_html/*
+
+    - name: "Cambiar permisos"
+      shell: chmod -R 755 /var/www/html/wordpress/public_html/*
+
+    - name: "Cambiar nomre de fichero"
+      shell: mv /var/www/html/wordpress/public_html/wp-config-sample.php /var/www/html/wordpress/public_html/wp-config.php
+
+    - name: "Copiar fichero de configuración de Wordpress"
+      copy:
+        src: wp-config.php
+        dest: /var/www/html/wordpress/public_html
+
+    - name: "Reiniciar nginx"
+      shell: systemctl reload nginx

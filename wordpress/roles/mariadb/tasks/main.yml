@@ -1,0 +1,32 @@
+--- 
+    - name: install mariadb
+      yum:
+        name:
+          - mariadb-server
+          - python3-pymysql
+          - python-mysqldb
+        state: latest
+  
+    - name: start mariadb
+      service:
+        name: mariadb
+        enabled: true
+        state: started
+
+    - name: Set root Password
+      shell: mysql -u root --password=toor -e "select(1);"
+
+    - name: Create WP database
+      mysql_db:
+        name: "{{ db_name }}"
+        login_user: root
+        login_password: "{{ root_pssw }}"
+        login_host: localhost
+        state: present
+
+    - name: Create user for database
+      mysql_user:
+        state: present
+        name: "{{ db_user }}"
+        password: "{{ user_pssw }}"
+        priv: 'wordpress_db.*:ALL,GRANT'

@@ -1,0 +1,23 @@
+---
+    - name: "Upgradear paquetes"
+      shell: apt-get -y upgrade
+
+    - name: "Actualizar paquetes"
+      shell: apt-get -y update
+
+    - name: "Instalar nginx"
+      shell: apt-get -y install nginx
+
+    - name: "Instalar paquetes necesarios"
+      apt: "name={{ item }} state=present"
+      with_items:
+        - php
+        - php-cli
+        - php-fpm
+        - php-mysql
+        - php-json
+        - php-opcache
+        - php-mbstring
+        - php-xml
+        - php-gd
+        - php-curl
