@@ -4,7 +4,7 @@
         name:
           - mariadb-server
           - python3-pymysql
-          - python-mysqldb
+          - python3-mysqldb
         state: latest
   
     - name: Iniciar MariaDB
@@ -16,8 +16,9 @@
     - name: Establecer contraseña para usuario root
       shell: mysql -u root --password=toor -e "select(1);"
 
-    - name: Crear base de datos para WP
+    - name: Crear base de datos para WordPress
       mysql_db:
+        login_unix_socket: /var/run/mysqld/mysqld.sock
         name: wordpress_db
         login_user: root
         login_password: toor
@@ -26,7 +27,10 @@
 
     - name: Crear usuario para la base de datos
       mysql_user:
+        login_user: root
+        login_password: toor
         state: present
         name: wpuser
         password: Passw0rd!
         priv: 'wordpress_db.*:ALL,GRANT'
+        login_unix_socket: /var/run/mysqld/mysqld.sock
