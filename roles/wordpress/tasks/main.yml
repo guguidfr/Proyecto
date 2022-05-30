@@ -7,8 +7,14 @@
         src: wordpress.conf
         dest: /etc/nginx/sites-available
 
+    #- name: "Crear enlace simbolico"
+      #shell: ln -s /etc/nginx/sites-available/wordpress.conf /etc/nginx/sites-enabled/
+      
     - name: "Crear enlace simbolico"
-      shell: ln -s /etc/nginx/sites-available/wordpress.conf /etc/nginx/sites-enabled/
+      ansible.bultin.file:
+        src: /etc/nginx/sites-available/wordpress.conf
+        dest: /etc/nginx/sites-enabled/
+        state: link
 
     - name: "Eliminar fichero default"
       shell: rm /etc/nginx/sites-enabled/default
