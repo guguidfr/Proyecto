@@ -19,7 +19,7 @@ ssh-copy-id vagrant@192.168.154
 
 ## Funcionamiento de los roles:
 Si decides cambiar las direcciones IP de las máquinas, recuerda modificar el archivo `hosts`.
-1. Se creará el servidor de Grafana. Accede a la página escribiendo en el navegador `http://192.168.151:3000`.
+1. Se creará el servidor de Grafana. Accede a la página escribiendo en el navegador `http://192.168.1.151:3000`.
 2. Se creará el servidor de base de datos PostgreSQL y habilitará el acceso remoto. El usuario por defecto es `postgres` y la contraseña es `postgres`.
 > Puedes cambiar las credenciales modificando las variables del archivo de [variables](./roles/postgresql/vars/main.yml).
 3. Se creará la página de Wordpress, instalando Nginx junto con las extensiones de PHP necesarias y creando por defecto una base de datos de MariaDB. Después se descargará y se instalará automáticamente Wordpress. Podrás acceder a la página mediante su IP.
