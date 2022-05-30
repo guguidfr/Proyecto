@@ -26,7 +26,5 @@
     state: present
     update_cache: yes
   notify:
-    - Iniciar grafana
-    - Habilitar grafana
-#- name: Iniciar Grafana en el arranque
-#  shell: sudo update-rc.d grafana-server defaults
+    - enable grafana
+    - restart grafana
