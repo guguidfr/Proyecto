@@ -1,6 +1,3 @@
-#sudo apt update
-#sudo apt -y upgrade
-#sudo apt -y install neofetch
 echo "vagrant:vagrant" | sudo chpasswd
 sudo yum -y install firewalld
 sudo systemctl start firewalld
