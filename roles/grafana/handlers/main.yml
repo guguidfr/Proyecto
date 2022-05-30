@@ -1,3 +1,6 @@
 ---
+- name: enable grafana
+  service: name=grafana-server enabled=yes
+
 - name: restart grafana
   service: name=grafana-server state=restarted
