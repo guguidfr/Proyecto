@@ -17,4 +17,8 @@
     - nginx
     - wordpress
     - mariadb
-
+- name: Crear página Apache
+  hosts: apache
+  become: yes
+  roles:
+    - apache
