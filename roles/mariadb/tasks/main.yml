@@ -31,6 +31,6 @@
         login_password: toor
         state: present
         name: wpuser
-        password: Passw0rd!
+        password: WordPress
         priv: 'wordpress_db.*:ALL,GRANT'
         login_unix_socket: /var/run/mysqld/mysqld.sock
