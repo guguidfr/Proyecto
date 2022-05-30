@@ -1,8 +1,0 @@
----
-- name: "Wordpress+Nginx+MariaDB"
-  hosts: host
-  become: yes
-  roles:
-    - nginx
-    - wordpress
-    - mariadb
