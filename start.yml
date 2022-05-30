@@ -1,12 +1,19 @@
 ---
-- name: Grafana server creation
-  hosts: grafana-server
+- name: Crear servidor de Grafana
+  hosts: grafana
   become: yes
   roles:
     - grafana
-- name: PSQL server creation
-  hosts: psql-server
+- name: 
+  hosts: psql
   become: yes
   roles:
     - postgresql
     - remote
+- name: Crear página de Wordpress
+  hosts: wordpress
+  become: yes
+  roles:
+    - nginx
+    - wordpress
+    - mariadb
