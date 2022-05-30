@@ -1,0 +1,45 @@
+#- name: Actualizar repositorios
+#  become: yes
+#  shell: apt update && apt -y upgrade
+
+- name: Actualizar la caché de APT
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
+- name: Instalar apache
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apache2
+    - apache2-utils
+
+- name: Dar permisos a www-data
+  file:
+    path: /var/www/html/
+    owner: www-data
+    group: www-data
+    mode: '755'
+
+#- name: Dar permisos a www-data
+#  become: yes
+#  shell: chown www-data:www-data /var/www/html/ -R
+
+#- name: Crear backup del index original
+#  become: yes
+#  shell: mv /var/www/html/index.html /var/www/html/index-backup.html
+
+- name: Importar nuevo index
+  become: yes
+  copy: 
+    src: ../templates/index.html
+    dest: /var/www/html/index.html
+
+- name: Importar CSS
+  become: yes
+  copy:
+    src: ../templates/css_index.css
+    dest: /var/www/html/css_index.css

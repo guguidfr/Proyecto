@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap');
+h1{
+    font-family: Rubik;
+    letter-spacing: 5px;
+}
+body{
+    margin: 0;
+    font-family: Rubik;
+    font-size: x-large;
+    background-color: #F5F5F5;
+    color: #5E6472;
+}
+
+div.content {
+    margin-left: 200px;
+    margin-bottom: 250px;
+    padding: 1px 16px;
+    height: 500px;
+}
+
+.contenedor{ /* Esta clase es para los divs en los que va a haber contenido en la página. */
+    text-align: right;
+    display: flex;
+    overflow: auto;
+}
+
+.main{
+    margin-left: 200px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+div.contenedor div{ /* Para los contenedores que van a contener la información o elementos que queramos. */
+    flex: 1;
+    width: 30%;
+    display: inline-block;
+    vertical-align: super;
+    padding: 1rem 1rem;
+    text-align: justify;
+    font-size: large;
+}
+.header{ /* Atributos de la cabecera. */
+    padding: 15px;
+    margin-bottom: 0;
+    
+    text-align: center;
+    background: #B8F2E6;
+    color: #5E6472;
+    font-size: 30px;
+    animation: almendra 40s infinite;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #eeeeee;
+    position: absolute;
+    height: 100%;
+    overflow: auto;
+    margin-left: 15px;
+  }
+  
+.sidebar a {
+    display: block;
+    color: #35383f;
+    padding: 16px;
+    text-decoration: none;
+    overflow: hidden;
+}
+.sidebar a.active {
+    background-color: #04AA6D;
+    color: #5e6472;
+    animation: almendra 40s infinite;
+}
+.sidebar a.active:hover{
+    color: #5e6472;
+}
+.sidebar a:hover:not(.active) {
+    background-color: #5e6472;
+    color: white;
+}
+
+@media screen and (max-width: 1000px){ /* Para ventanas menores a 1000px, la barra lateral pasará a una horizontal superior. */
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: sticky;
+      margin-left: 0px;
+      margin-bottom: 15px;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+}
+@media screen and (max-width: 500px){ /* En ventanas de menos de 500px, la barra se mostrará en vertical en vez de horizontal. */ 
+    .sidebar a {
+      text-align: center;
+      float: none;
+      margin-left: 0px;
+      margin-bottom: 15px;
+    }
+}
+@keyframes almendra { /* Esta es la animación de la transición de colores del fondo de la cabecera de la página y la sección activa en la barra de navegación. */
+    0%{background-color: #B8F2E6;}
+    25%{background-color: #FAF3DD;}
+    50%{background-color: #FFA69E;}
+    100%{background-color: #B8F2E6;}
+}

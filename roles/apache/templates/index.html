@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--José Daniel Fernández López-->
+<html lang="es-ES">
+    <meta charset="UTF-8">
+    <title>
+        Índice
+    </title>
+    <link rel="stylesheet" href="css_index.css">
+    <link rel="icon" type="image" href="https://cdn-icons-png.flaticon.com/512/63/63633.png">
+    <body>
+        <div class="header">
+            <h1>
+                Servidor de información y redirección
+            </h1>
+            <p>
+                Los enlaces de la barra lateral te llevarán a páginas de interés
+            </p>
+        </div>
+        <br>
+        <div style="width: fit-content;">
+            <div class="sidebar">
+                <a href="https://github.com/guguidfr/Proyecto" target="blank">Página del proyecto en GitHub</a>
+                <a href="http://192.168.1.151:3000" target="blank">Servidor de Grafana</a>
+                <a href="http://192.168.1.153" target="blank">Página de Wordpress</a>
+                <a href="https://github.com/guguidfr" target="_blank">José Daniel (GitHub)</a>
+                <a href="https://github.com/ffrias9" target="_blank">Francisco Frías (GitHub)</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="contenedor">
+                <div>
+                    <h3>La página del Proyecto</h3>
+                    <p>En la página de GitHub encontrarás todos los archivos y roles de Ansible para la creación de los servidores web, incluyendo uno que servirá para gestionar los demás.</p>
+                    <p>Las máquinas virtuales las podrás crear mediante un Vagrantfile que usará Virtualbox. Puedes ajustar los nombres de las máquinas o la memoria ram desde este archivo.</p>
+                    <p>Si necesitas saber más sobre cómo funcionan las diferentes máquinas o cómo configurarlas tras ejecutar los roles, entra a la página del proyecto de GitHub.</p>
+                    <h3>El nodo gestor</h3>
+                    <p>Es una máquina virtual con Debian 11 que se actualiza automáticamente e instala la última versión de Anisble junto con Python3. Usa esta para ejecutar roles de Ansible en el resto de servidores.</p>
+                    <h3>El servidor de Grafana</h3>
+                    <p>Grafana nos permite conectarnos a diversos servidores web para proporcionarnos datos de manera gráfica; un ejemplo de su uso sería la monitorización de recursos del servidor, pero en este proyecto hemos decidido que lo vamos a usar para ver los datos del servidor de PostgreSQL.</p>
+                </div>
+                <div>
+                    <h3>La página de Wordpress</h3>
+                    <p>Hemos decidido añadir un Wordpress para que tenga la función de "blog" dentro de este entorno de máquinas virtuales. La página en la que estás leyendo esto, que está funcionando con Apache, simplemente se encarga de informar y redirigir.</p>
+                    <p>En caso de que estas máquinas se fuesen a usar en servidores web con una función real, como para una pequeña empresa, podría usar esta página como principal para los clientes y redirigirlos a las diferentes secciones, y usar el WordPress como foro de noticias, por ejemplo.</p>
+                    <h3>El servidor de PostgreSQL</h3>
+                    <p>Es un servidor de base de datos que está corriendo en CentOS7. Puede acceder al mismo conectándote mediante ssh a la máquina, y luego a la base de datos, o directamente a la base de datos mediante el acceso remoto del propio Postgres.</p>
+                </div>
+            </div>  
+            <div class="contenedor">
+                <div style="text-align: center;">
+                    <h2>Los creadores</h2>
+                    <p>Este proyecto ha sido creado por José Daniel y Francisco Frías (@guguidfr y @ffrias9 respectivamente en GitHub).</p>
+                    <p>En nuestros perfiles de GitHub podrás encontrar más repositorios de Ansible para realizar otras tareas, o descargar proyectos individuales por separado.</p>
+                </div>
+            </div> 
+        </div>
+    </body>
+</head>
+</html>
+</html>
