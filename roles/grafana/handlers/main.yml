@@ -4,13 +4,13 @@
     state: present
     update_cache: yes
   notify:
-    - Start grafana
-    - Enable grafana
+    - Iniciar grafana
+    - Habilitar grafana
 - name: Iniciar Grafana
   systemd:
     name: grafana-server
     state: started
-- name: Start Grafana
+- name: Habilitar grafana
   systemd:
     name: grafana-server
     enabled: yes
