@@ -26,4 +26,5 @@
     state: present
     update_cache: yes
   notify:
+    - enable grafana
     - restart grafana
