@@ -1,3 +1,13 @@
+- name: Instalar Firewalld
+  yum:
+    name: firewalld
+    state: present
+
+- name: Iniciar Firewalld
+  service:
+    name: firewalld
+    state: restarted
+
 - name: "Copiar archivo1 al servidor"
   copy:
     src: "{{ file1 }}"
